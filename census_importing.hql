@@ -1,5 +1,5 @@
 -- Import Category Map Data
-s3-dist-cp --src s3://idiom-vendor-data/vendor-comscore/clean/census-category-map/country=us/ --dest hdfs:///user/hive/warehouse/census-map
+--s3-dist-cp --src s3://idiom-vendor-data/vendor-comscore/clean/census-category-map/country=us/ --dest hdfs:///user/hive/warehouse/census-map
 
 -- Create table for Census Category Map
 create table census_category_map_raw (cat_subcat_id string, cat_subcat_name string)
