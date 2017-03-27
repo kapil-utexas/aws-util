@@ -5,6 +5,7 @@
 --hive
 
 -- Create the traffic table
+drop table all_traffic;
 create table all_traffic 
 (   machine_id string, 
     url_idc string, 
@@ -402,6 +403,11 @@ alter table all_traffic add partition (dt='2016-12-31') location 's3://idiom-ven
 create table comscore_machines as
 select distinct machine_id
 from all_traffic;
+
+----extract pels from temp_xref data
+create table temp_xref (pel string, machine_id string, person_id string)
+row format delimited fields terminated by '\t'
+location 'hdfs:///user/hive/warehouse/temp_xref/'; 
 
 -- Get pels for those machine ids
 create table comscore_pels as
