@@ -28,7 +28,7 @@ dns=`echo 'aws emr describe-cluster --cluster-id "$CLUSTERID" --region "$REGION"
 dns=`eval $dns`
 dns=${dns:32}
 dns_length=${#dns}
-dns=${dns:0:`expr $dns_length - 3`}
+dns=${dns:0:`expr $dns_length - 2`}
 
 # Plug that DNS into scp
 scp -i "$PEMLOCATION" "$PATH_LOCAL_SRC" hadoop@"$dns":/home/hadoop/"$PATH_REMOTE_DEST"
