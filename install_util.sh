@@ -3,7 +3,7 @@
 #just copy this to the emr cluster first
 #sudo yum -y update
 
-if [ $# eq 1 ]
+if [ $# -eq 1 ]
   then
     echo "Installing iPython Spark and Necessary Utilities.... Please be Patient!"
     cp aws-util/setup_jupyter_pyspark.sh .
